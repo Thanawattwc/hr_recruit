@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: "icon";
+    src: url("icon/icon.eot");
+    src: url("icon/icon.eot?#iefix") format("embedded-opentype"), url("icon/icon.woff") format("woff"), url("icon/icon.ttf") format("truetype"), url("icon/icon.svg#icon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+[data-icon]:before {
+    font-family: "icon" !important;
+    content: attr(data-icon);
+    display: inline-block;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="fi-"]:before,
+[class*=" fi-"]:before {
+    font-family: "icon" !important;
+    display: inline-block;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.fi-news:before {
+    content: "\e003";
+}
+
+.fi-placard:before {
+    content: "\e004";
+}
+
+.fi-envelope:before {
+    content: "\e005";
+}
+
+.fi-map:before {
+    content: "\e007";
+}
+
+.fi-mitr-phol:before {
+    content: "\e008";
+}
+
+.fi-speedometer:before {
+    content: "\e000";
+}
+
+.fi-social-windows:before {
+    content: "\e001";
+}
+
+.fi-date-time:before {
+    content: "\e002";
+}
+
+.fi-phone:before {
+    content: "\e006";
+}

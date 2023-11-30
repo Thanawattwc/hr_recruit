@@ -1,0 +1,50 @@
+AddType text/x-component .htc
+
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .php .html .css .js .txt .xml .json
+
+ExpiresActive On
+ExpiresDefault "access plus 1 week"
+
+ErrorDocument 403 /errors/html/error_404.html
+
+<IfModule mod_rewrite.c>
+DirectoryIndex index.php
+RewriteEngine On
+RewriteCond $1 !^(index\.php|favicon\.ico)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+ErrorDocument 404 /index.php
+</IfModule>
+
+<IfModule mod_env.c>
+    SetEnv CI_ENV development
+</IfModule>
+
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript
+</IfModule>
+
+# BEGIN REQUIRED FOR WEBFONTS
+AddType font/ttf .ttf
+AddType font/eot .eot
+AddType font/otf .otf
+AddType font/woff .woff
+AddType font/woff .woff2
+<FilesMatch "\.(ttf|otf|eot|woff|woff2)$">
+<IfModule mod_headers.c>
+Header set Access-Control-Allow-Origin "*"
+</IfModule>
+</FilesMatch>
+# END REQUIRED FOR WEBFONTS
+
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)(\.gz)?$">
+Header set Access-Control-Allow-Origin "*"
+Header set Expires "access plus 1 week"
+Header unset ETag
+FileETag None
+</FilesMatch>

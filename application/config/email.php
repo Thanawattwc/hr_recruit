@@ -1,0 +1,22 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+$config['useragent'] = _SMTP_AGENT_;
+$config['protocol'] = 'smtp';
+$config['mailpath'] = '';
+$config['smtp_host'] = _SMTP_HOST_;
+$config['smtp_user'] = _SMTP_USERNAME_;
+$config['smtp_pass'] = _SMTP_PASSWORD_;
+$config['smtp_port'] = _SMTP_PORT_;
+$config['smtp_timeout'] = '5';
+$config['smtp_keepalive'] = TRUE;
+$config['smtp_auth'] = (!empty($config['smtp_user']) and !empty($config['smtp_pass']));
+$config['wordwrap'] = TRUE;
+$config['wrapchars'] = 76;
+$config['mailtype'] = 'html';
+$config['charset'] = 'utf-8';
+$config['validate'] = FALSE;
+$config['priority'] = '3';
+$config['crlf'] = "\r\n";
+$config['newline'] = "\r\n";
+$config['bcc_batch_mode'] = FALSE;
+$config['bcc_batch_size'] = 200;
